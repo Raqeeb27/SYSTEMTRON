@@ -64,7 +64,7 @@ def single_player_mode():
                 playerPosition = choice(remaining_positions)
                 print(f"{bright}{blue}\'O\' chance\nComputer Position : {yellow}\'{playerPosition}\'{reset}")
                 sleep(0.5)
-                
+
             if positions[int(playerPosition)] in ['O','X']:
                 print_board()
                 print(f"{red}{bright}Invalid Position for '{player}'\n{reset}")
@@ -81,7 +81,7 @@ def single_player_mode():
             print_board()
             print(f"{bright}{red}Invalid Position for \'{player}\'\nSelect position from 0 - 8\n{reset}")
             sleep(0.5)
-            continue    
+            continue
         attempts += 1
 
 def two_player_mode():
@@ -92,7 +92,7 @@ def two_player_mode():
         player_colour = Fore.GREEN if attempts % 2 == 0 else Fore.BLUE
         try:
             playerPosition = int(input(f"{bright}{player_colour}\'{player}\' chance\nEnter {player} position: {reset}"))
-            
+
             if positions[playerPosition] in ['O','X']:
                 print_board()
                 print(f"{red}{bright}Invalid Position for \'{player}\'\n{reset}")
@@ -107,20 +107,20 @@ def two_player_mode():
         except:
             print(f"{red}{bright}\nInvalid Position \nSelect position from 0 - 8\n{reset}")
             sleep(0.5)
-            continue    
+            continue
         attempts += 1
 
 def main():
     global attempts
     global positions
     global remaining_positions
-    
+
     while True:
         print(f"\n{magenta}{bright}" + " TIC - TAC - TOE ".center(32, "-"))
         print(f" New Game ".center(32, "-") + f"{reset}")
         print(f"{blue}\nChoose the game mode :\n{yellow}1. Single Player Mode\n2. Two Player Mode{reset}")
         choice = input(f"{magenta}{bright}\n---> {reset}")
-        
+
         if choice == "1":
             single_player_mode()
         elif choice == "2":
@@ -130,7 +130,7 @@ def main():
 
         if attempts >= 9:
             print(f"{yellow}{bright}It's a DRAW !!!\n!!! GAME OVER !!!\n{reset}")
-        
+
         sleep(0.5)
         play_again = input(f"{blue}\nDo you want to play again (Y/n): ").strip().lower()
         if play_again in ["", "y", "yes"]:
